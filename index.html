@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Humaníadas</title>
+<meta name="description" content="Um poema por dia, da obra de uma vida. A app Humaníadas, de Bartolomeu Valente.">
+<link rel="icon" href="icon.png">
+<style>
+:root { --bg:#f7f2e8; --fg:#2b2620; --muted:#6b6257; --card:#fffdf8; --line:#e2d8c6; --accent:#7a3b1d; }
+@media (prefers-color-scheme: dark) { :root { --bg:#1d1a16; --fg:#f1eadf; --muted:#b7ab9b; --card:#27231e; --line:#3a342c; --accent:#e0a37a; } }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font:17px/1.5 Georgia, "Times New Roman", serif; }
+main { max-width:440px; margin:0 auto; padding:40px 16px; text-align:center; }
+img.logo { width:96px; height:96px; border-radius:22px; }
+h1 { font-size:28px; margin:16px 0 4px; letter-spacing:.5px; }
+p.lema { color:var(--muted); margin:0 0 28px; font-style:italic; }
+a.btn, span.btn { display:block; padding:16px; margin:12px 0; border:1px solid var(--line); border-radius:14px;
+  background:var(--card); color:var(--fg); text-decoration:none; font:600 17px/1.3 system-ui, sans-serif; }
+a.btn.main { background:var(--accent); color:var(--bg); border-color:var(--accent); }
+span.btn { color:var(--muted); font-weight:400; }
+small { display:block; color:var(--muted); font:14px/1.4 system-ui, sans-serif; margin-top:28px; }
+</style>
+</head>
+<body>
+<main>
+<img class="logo" src="icon.png" alt="Ícone da app Humaníadas">
+<h1>Humaníadas</h1>
+<p class="lema">Um poema por dia, da obra de uma vida.</p>
+
+<a class="btn main" id="play" href="https://play.google.com/store/apps/details?id=pt.humaniadas.humaniadas_app&amp;referrer=utm_source%3Dinstagram%26utm_medium%3Dsocial%26utm_campaign%3Dlancamento">Android: Google Play</a>
+<span class="btn">iPhone: em breve</span>
+<a class="btn" href="https://whatsapp.com/channel/0029VbDdGTGFMqreBNp5Qk3D">Poema do Dia no WhatsApp</a>
+<a class="btn" href="https://www.facebook.com/humaniadas">Facebook</a>
+<a class="btn" href="https://www.humaniadas.com">www.humaniadas.com</a>
+
+<small>A obra de Bartolomeu Valente: 22 403 poemas das Humaníadas. App gratuita, sem anúncios e sem conta.</small>
+</main>
+<script>
+// No Android, o navegador dentro do Instagram não abre ligações da Google Play:
+// pede-se a app da loja diretamente, com a página web como recurso.
+(function () {
+  var a = document.getElementById("play");
+  if (!/Android/i.test(navigator.userAgent)) return;
+  var web = a.href;
+  var q = web.split("?")[1];
+  a.href = "intent://details?" + q + "#Intent;scheme=market;package=com.android.vending;S.browser_fallback_url=" + encodeURIComponent(web) + ";end";
+})();
+</script>
+</body>
+</html>
